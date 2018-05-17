@@ -1,0 +1,19 @@
+{
+  "name": "vue-cli-plugin-styleguidist",
+  "version": "0.0.1",
+  "description": "vue cli 3.0 plugin for vue-styleguidist",
+  "main": "index.js",
+  "repository": "https://github.com/elevatebart/vue-cli-plugin-styleguidist.git",
+  "author": "Bart Ledoux <ledouxb@me.com>",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "vue-styleguidist": "^1.7.7"
+  },
+  "peerDependencies": {
+    "@vue/cli": "^3.0.0-beta.10"
+  },
+  "devDependencies": {
+    "@vue/cli-test-utils": "^3.0.0-beta.10"
+  }
+}
