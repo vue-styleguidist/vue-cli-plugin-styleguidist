@@ -19,7 +19,7 @@ module.exports = api => {
         process.VUE_CLI_STYLEGUIDIST_CONFIG = args.config
       }
       return new Promise((resolve, reject) => {
-        const child = execa(styleguidistBinPath, ['--config', path.join(__dirname, 'styleguide.config.js')], {
+        const child = execa(styleguidistBinPath, ['server', '--config', path.join(__dirname, 'styleguide.config.js')], {
           cwd: api.resolve('.'),
           stdio: 'inherit'
         })
