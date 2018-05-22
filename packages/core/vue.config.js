@@ -1,7 +1,7 @@
 // this file is used to make sure that the Service loads
 // vue as a compiler and not as a runtime esm
 
-const merge = require('webapck-merge')
+const merge = require('webpack-merge')
 const fs = require('fs')
 const path = require('path')
 
