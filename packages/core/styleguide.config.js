@@ -2,20 +2,9 @@ const fs = require('fs')
 const path = require('path')
 const merge = require('webpack-merge')
 
-function getWebpackConfig () {
-  process.env.VUE_CLI_SERVICE_CONFIG_PATH = path.join(__dirname, 'vue.config.js')
-  const webpackConfig = require('@vue/cli-service/webpack.config')
-  webpackConfig.plugins = webpackConfig.plugins.filter(
-    plugin => !plugin.options || ['preload', 'prefetch'].indexOf(plugin.options.rel) < 0
-  )
-  return webpackConfig
-}
-
-const webpackConfig = getWebpackConfig()
+const webpackConfig = require('@vue/cli-service/webpack.config')
 let config = {
   components: path.join(webpackConfig.context, 'src/components/**/[A-Z]*.vue'),
-  // TODO: this should be changed to just require("@vue/cli-service/webpack.config")
-  // as soon as preload and prefetch are working
   webpackConfig
 }
 
