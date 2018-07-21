@@ -5,7 +5,8 @@
     "test": "jest --runInBand",
     "pretest": "yarn clean",
     "lint": "eslint --fix packages/**/*.js packages/**/bin/*",
-    "clean": "rimraf test/*"
+    "clean": "rimraf test/*",
+    "pub": "lerna publish"
   },
   "gitHooks": {
     "pre-commit": "lint-staged"
