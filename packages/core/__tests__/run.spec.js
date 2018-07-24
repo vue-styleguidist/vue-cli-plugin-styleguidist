@@ -18,7 +18,7 @@ test('styleguidist:server', async () => {
   const project = await createAndInstall(`run-styleguidist`)
   await serve(
     () => project.run('vue-cli-service styleguidist'),
-    async ({ nextUpdate, helpers }) => {
+    async ({ helpers }) => {
       expect(await helpers.getText('h1[class^=rsg--logo]')).toMatch('Default Style Guide')
     }
   )
