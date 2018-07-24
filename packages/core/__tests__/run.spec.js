@@ -23,3 +23,8 @@ test('styleguidist', async () => {
     }
   )
 })
+
+test('styleguidist', async () => {
+  const project = await createAndInstall(`build-styleguidist`)
+  await project.run('vue-cli-service styleguidist:build')
+})
