@@ -4,7 +4,7 @@ module.exports = api => {
   api.registerCommand(
     'styleguidist',
     {
-      description: 'launch the styleguidist de server',
+      description: 'launch the styleguidist dev server',
       usage: 'vue-cli-service styleguidist [options]',
       options: {
         '--config': 'path to the config file'
