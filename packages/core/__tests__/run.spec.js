@@ -14,7 +14,7 @@ async function createAndInstall (name) {
   return project
 }
 
-test('styleguidist', async () => {
+test('styleguidist:server', async () => {
   const project = await createAndInstall(`run-styleguidist`)
   await serve(
     () => project.run('vue-cli-service styleguidist'),
@@ -24,7 +24,7 @@ test('styleguidist', async () => {
   )
 })
 
-test('styleguidist', async () => {
+test('styleguidist:build', async () => {
   const project = await createAndInstall(`build-styleguidist`)
   await project.run('vue-cli-service styleguidist:build')
 })
