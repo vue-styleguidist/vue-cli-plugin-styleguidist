@@ -14,17 +14,19 @@ async function createAndInstall (name) {
   return project
 }
 
-test('styleguidist', async () => {
-  const project = await createAndInstall(`run-styleguidist`)
+test('serve', async () => {
+  const project = await createAndInstall(`serve`)
   await serve(
     () => project.run('vue-cli-service styleguidist'),
-    async ({ nextUpdate, helpers }) => {
+    async ({ helpers }) => {
       expect(await helpers.getText('h1[class^=rsg--logo]')).toMatch('Default Style Guide')
     }
   )
 })
 
-test('styleguidist', async () => {
-  const project = await createAndInstall(`build-styleguidist`)
-  await project.run('vue-cli-service styleguidist:build')
+xtest('build', async () => {
+  const project = await createAndInstall(`build`)
+  const stdout = await project.run('vue-cli-service styleguidist:build')
+  expect(stdout).toMatch('Style guide published')
+  expect(project.has('dist/index.html')).toBe(true)
 })

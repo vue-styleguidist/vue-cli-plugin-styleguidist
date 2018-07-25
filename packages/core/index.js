@@ -1,7 +1,7 @@
 const path = require('path')
+const execa = require('execa')
 
 const runCommand = (cmd, api) => (args, rawArgv) => {
-  const execa = require('execa')
   const styleguidistBinPath = require.resolve('vue-styleguidist/bin/styleguidist')
 
   // save the config url of the user if need be
@@ -9,18 +9,30 @@ const runCommand = (cmd, api) => (args, rawArgv) => {
     process.VUE_CLI_STYLEGUIDIST_CONFIG = args.config
   }
   return new Promise((resolve, reject) => {
-    const child = execa(styleguidistBinPath, [cmd, '--config', path.join(__dirname, 'styleguide.config.js')], {
+    const server = execa(styleguidistBinPath, [cmd, '--config', path.join(__dirname, 'styleguide.config.js')], {
       cwd: api.resolve('.'),
       stdio: 'inherit'
     })
-    child.on('error', reject)
-    child.on('exit', code => {
+    server.on('error', reject)
+    server.on('exit', code => {
       if (code !== 0) {
         reject(`vue-styleguidist exited with code ${code}.`)
       } else {
+        console.log('exited styleguide')
         resolve()
       }
     })
+
+    // on appveyor, killing the process with SIGTERM causes execa to
+    // throw error
+    if (process.env.VUE_CLI_TEST) {
+      process.stdin.on('data', data => {
+        if (data.toString() === 'close') {
+          console.log('got close signal!')
+          process.exit()
+        }
+      })
+    }
   })
 }
 
