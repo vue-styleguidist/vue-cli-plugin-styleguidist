@@ -24,7 +24,7 @@ test('serve', async () => {
   )
 })
 
-xtest('build', async () => {
+test('build', async () => {
   const project = await createAndInstall(`build`)
   const stdout = await project.run('vue-cli-service styleguidist:build')
   expect(stdout).toMatch('Style guide published')
