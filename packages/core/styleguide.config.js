@@ -34,4 +34,6 @@ if (fs.existsSync(pathToCustomConfig)) {
   config = merge(config, customizedConfig)
 }
 
+config.styleguideDir = config.styleguideDir || path.dirname(pathToCustomConfig)
+
 module.exports = config
