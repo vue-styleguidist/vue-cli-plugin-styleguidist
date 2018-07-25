@@ -29,8 +29,7 @@ const runCommand = (cmd, api) => (args, rawArgv) => {
       process.stdin.on('data', data => {
         if (data.toString() === 'close') {
           console.log('got close signal!')
-          server.kill(0)
-          resolve()
+          process.exit()
         }
       })
     }
