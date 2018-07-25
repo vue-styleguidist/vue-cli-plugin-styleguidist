@@ -14,8 +14,8 @@ async function createAndInstall (name) {
   return project
 }
 
-test('styleguidist:server', async () => {
-  const project = await createAndInstall(`run-styleguidist`)
+test('serve', async () => {
+  const project = await createAndInstall(`serve`)
   await serve(
     () => project.run('vue-cli-service styleguidist'),
     async ({ helpers }) => {
@@ -24,7 +24,9 @@ test('styleguidist:server', async () => {
   )
 })
 
-test('styleguidist:build', async () => {
-  const project = await createAndInstall(`build-styleguidist`)
-  await project.run('vue-cli-service styleguidist:build')
+xtest('build', async () => {
+  const project = await createAndInstall(`build`)
+  const stdout = await project.run('vue-cli-service styleguidist:build')
+  expect(stdout).toMatch('Style guide published')
+  expect(project.has('dist/index.html')).toBe(true)
 })
