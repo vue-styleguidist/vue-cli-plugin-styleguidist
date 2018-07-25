@@ -14,7 +14,7 @@ const pathToCustomConfig = path.resolve(
   process.VUE_CLI_STYLEGUIDIST_CONFIG || 'styleguide.config.js'
 )
 
-const pathProperties = ['components', 'content']
+const pathProperties = ['components', 'content', 'styleguideDir']
 function fixPathToAppRootFolder (conf) {
   const pathToCustomConfigDirName = path.dirname(pathToCustomConfig)
   Object.keys(conf).map(prop => {
