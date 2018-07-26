@@ -17,8 +17,12 @@ const runCommand = (cmd, api) => (args, rawArgv) => {
       if (code !== 0) {
         reject(`vue-styleguidist exited with code ${code}.`)
       } else {
-        console.log('exited styleguide')
-        resolve()
+        if (process.env.VUE_CLI_TEST) {
+          process.exit()
+        } else {
+          console.log('exited styleguide')
+          resolve()
+        }
       }
     })
 

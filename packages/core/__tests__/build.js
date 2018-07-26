@@ -15,19 +15,17 @@ async function createAndInstall (name) {
 
 test('simple build', async () => {
   const project = await createAndInstall(`build`)
-  const stdout = await project.run('vue-cli-service styleguidist:build')
+  const { stdout } = await project.run('vue-cli-service styleguidist:build')
   expect(stdout).toMatch('Style guide published')
-  expect(project.has('dist/index.html')).toBe(true)
+  expect(project.has('styleguide/index.html')).toBeTruthy()
 })
 
 test('change styleguideDir folder', async () => {
   const project = await createAndInstall(`ccf`)
   const config = await project.read('styleguide.config.js')
-  await project.write(
-    'styleguide.config.js',
-    config.replace(/(module\.exports = \{)/, "$1\n  styleguideDir: 'notDist',")
-  )
+  // add a styleguideDir configuration
+  await project.write('styleguide.config.js', config.replace(/(module\.exports = \{)/, "$1\n  styleguideDir: 'dist',"))
   await project.run('vue-cli-service styleguidist:build')
-  expect(project.has('dist/index.html')).not.toBeTruthy()
-  expect(project.has('notDist/index.html')).toBeTruthy()
+  expect(project.has('styleguide/index.html')).not.toBeTruthy()
+  expect(project.has('dist/index.html')).toBeTruthy()
 })
