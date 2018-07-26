@@ -1,4 +1,3 @@
-const path = require('path')
 const execa = require('execa')
 
 const runCommand = (cmd, api) => (args, rawArgv) => {
@@ -9,7 +8,7 @@ const runCommand = (cmd, api) => (args, rawArgv) => {
     process.VUE_CLI_STYLEGUIDIST_CONFIG = args.config
   }
   return new Promise((resolve, reject) => {
-    const server = execa(styleguidistBinPath, [cmd, '--config', path.join(__dirname, 'styleguide.config.js')], {
+    const server = execa(styleguidistBinPath, [cmd], {
       cwd: api.resolve('.'),
       stdio: 'inherit'
     })

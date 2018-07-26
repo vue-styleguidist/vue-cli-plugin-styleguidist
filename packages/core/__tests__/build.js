@@ -13,6 +13,13 @@ async function createAndInstall (name) {
   return project
 }
 
+test('simple build', async () => {
+  const project = await createAndInstall(`build`)
+  const stdout = await project.run('vue-cli-service styleguidist:build')
+  expect(stdout).toMatch('Style guide published')
+  expect(project.has('dist/index.html')).toBe(true)
+})
+
 test('change styleguideDir folder', async () => {
   const project = await createAndInstall(`ccf`)
   const config = await project.read('styleguide.config.js')
@@ -21,5 +28,6 @@ test('change styleguideDir folder', async () => {
     config.replace(/(module\.exports = \{)/, "$1\n  styleguideDir: 'notDist',")
   )
   await project.run('vue-cli-service styleguidist:build')
+  expect(project.has('dist/index.html')).not.toBeTruthy()
   expect(project.has('notDist/index.html')).toBeTruthy()
 })
