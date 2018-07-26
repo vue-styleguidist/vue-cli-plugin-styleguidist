@@ -1,14 +1,16 @@
 const execa = require('execa')
 
-const runCommand = (cmd, api) => (args, rawArgv) => {
+const runCommand = (api, cmd) => (args, rawArgv) => {
   const styleguidistBinPath = require.resolve('vue-styleguidist/bin/styleguidist')
 
+  const extraargs = []
   // save the config url of the user if need be
   if (args.config) {
-    process.VUE_CLI_STYLEGUIDIST_CONFIG = args.config
+    extraargs.push('--config')
+    extraargs.push(args.config)
   }
   return new Promise((resolve, reject) => {
-    const server = execa(styleguidistBinPath, [cmd], {
+    const server = execa(styleguidistBinPath, [cmd, ...extraargs], {
       cwd: api.resolve('.'),
       stdio: 'inherit'
     })
@@ -49,7 +51,7 @@ module.exports = api => {
         '--config': 'path to the config file'
       }
     },
-    runCommand('server', api)
+    runCommand(api, 'server')
   )
 
   api.registerCommand(
@@ -61,6 +63,6 @@ module.exports = api => {
         '--config': 'path to the config file'
       }
     },
-    runCommand('build', api)
+    runCommand(api, 'build')
   )
 }
