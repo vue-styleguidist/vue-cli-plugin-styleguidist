@@ -24,9 +24,16 @@ test('serve', async () => {
   )
 })
 
-xtest('build', async () => {
-  const project = await createAndInstall(`build`)
-  const stdout = await project.run('vue-cli-service styleguidist:build')
-  expect(stdout).toMatch('Style guide published')
-  expect(project.has('dist/index.html')).toBe(true)
+test('serve with moved config file', async () => {
+  const project = await createAndInstall(`serve-moved`)
+  const config = await project.read('styleguide.config.js')
+  const newFileName = 'othername.config.js'
+  await project.write(newFileName, config)
+  await project.rm('styleguide.config.js')
+  await serve(
+    () => project.run(`vue-cli-service styleguidist --config ${newFileName}`),
+    async ({ helpers }) => {
+      expect(await helpers.getText('h1[class^=rsg--logo]')).toMatch('Default Style Guide')
+    }
+  )
 })
