@@ -25,7 +25,7 @@ test('serve', async () => {
 })
 
 test('serve with moved config file', async () => {
-  const project = await createAndInstall(`servemoved`)
+  const project = await createAndInstall(`serve-moved`)
   const config = await project.read('styleguide.config.js')
   const newFileName = 'othername.config.js'
   await project.write(newFileName, config)

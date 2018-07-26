@@ -21,7 +21,7 @@ test('simple build', async () => {
 })
 
 test('change styleguideDir folder', async () => {
-  const project = await createAndInstall(`ccf`)
+  const project = await createAndInstall(`build-config-dir`)
   const config = await project.read('styleguide.config.js')
   // add a styleguideDir configuration
   await project.write('styleguide.config.js', config.replace(/(module\.exports = \{)/, "$1\n  styleguideDir: 'dist',"))
