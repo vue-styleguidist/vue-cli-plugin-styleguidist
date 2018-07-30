@@ -8,7 +8,7 @@ This is a vue-cli 3.x plugin to add [vue-styleguidist](https://github.com/vue-st
 
 ## Install
 
-If yon don't have a project created with Vue CLI 3:
+If you don't have a project created with Vue CLI 3:
 
 ```bash
 vue create my-app
@@ -17,7 +17,7 @@ vue create my-app
 Install the plugin into your project:
 
 ```bash
-cd my-vue-app
+cd my-app
 vue add styleguidist
 ```
 
