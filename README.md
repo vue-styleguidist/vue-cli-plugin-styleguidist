@@ -14,7 +14,7 @@ If you don't have a project created with Vue CLI 3:
 vue create my-app
 ```
 
-Install the plugin into your project:
+Add the plugin to your project:
 
 ```bash
 cd my-app
