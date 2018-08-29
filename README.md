@@ -4,13 +4,38 @@
 
 # vue-cli-plugin-styleguidist
 
-vue cli 3.0 plugin for vue-styleguidist
+This is a vue-cli 3.x plugin to add [vue-styleguidist](https://github.com/vue-styleguidist/vue-styleguidist) in your Vue project.
 
-## Use Plugin
+## Install
 
-[documentation](https://github.com/elevatebart/vue-cli-plugin-styleguidist/tree/master/packages/core#readme)
+If you don't have a project created with Vue CLI 3:
 
-## Install for Contribution
+```bash
+vue create my-app
+```
+
+Add the plugin to your project:
+
+```bash
+cd my-app
+vue add styleguidist
+```
+
+## Usage
+
+After installation, invoke `vue-styleguidist` with:
+
+```bash
+npm run styleguide
+```
+
+## Configurations
+
+`vue-styleguidist` have some plugin options in `styleguide.config.js`
+
+You can read all the options [here](https://github.com/vue-styleguidist/vue-styleguidist/blob/master/docs/Configuration.md).
+
+## Contribution
 
 This project uses a monorepo setup that requires using [Yarn](https://yarnpkg.com) because it relies on [Yarn workspaces](https://yarnpkg.com/blog/2017/08/02/introducing-workspaces/).
 
