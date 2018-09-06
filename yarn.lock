@@ -9349,9 +9349,9 @@ react-lifecycles-compat@^3.0.4:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
 
-react-styleguidist@^7.3.0:
-  version "7.3.0"
-  resolved "https://registry.yarnpkg.com/react-styleguidist/-/react-styleguidist-7.3.0.tgz#531a68e55e371c97e89f0a04ef3d7e2cd90a14ac"
+react-styleguidist@^7.3.5:
+  version "7.3.5"
+  resolved "https://registry.yarnpkg.com/react-styleguidist/-/react-styleguidist-7.3.5.tgz#396b9beaf961c7f72c97a3c68e368275a5280e06"
   dependencies:
     "@vxna/mini-html-webpack-template" "^0.1.7"
     acorn "^5.7.1"
@@ -11539,9 +11539,9 @@ vue-style-loader@^4.1.0:
     hash-sum "^1.0.2"
     loader-utils "^1.0.2"
 
-vue-styleguidist@^1.8.4:
-  version "1.8.4"
-  resolved "https://registry.yarnpkg.com/vue-styleguidist/-/vue-styleguidist-1.8.4.tgz#a98ca71620348c0435429c5b5df6aa9d4c5d28a2"
+vue-styleguidist@^1.8.5:
+  version "1.8.5"
+  resolved "https://registry.yarnpkg.com/vue-styleguidist/-/vue-styleguidist-1.8.5.tgz#0fca5928c6448ed97e6599d1ced028fe2b798961"
   dependencies:
     "@vxna/mini-html-webpack-template" "^0.1.7"
     acorn "^5.7.1"
@@ -11593,7 +11593,7 @@ vue-styleguidist@^1.8.4:
     react-group "^1.0.6"
     react-icons "^2.2.7"
     react-lifecycles-compat "^3.0.4"
-    react-styleguidist "^7.3.0"
+    react-styleguidist "^7.3.5"
     recast "^0.13.0"
     remark "^9.0.0"
     strip-comments "^0.4.4"
