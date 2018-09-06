@@ -1,6 +1,8 @@
 {
   "private": true,
-  "workspaces": ["packages/*"],
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
     "test": "jest",
     "pretest": "yarn clean",
@@ -13,12 +15,26 @@
   },
   "jest": {
     "testEnvironment": "node",
-    "setupFiles": ["<rootDir>/testSetup.js"],
-    "testPathIgnorePatterns": ["/template/", "/test/", "/temp/", "/scripts/", ".*.helper.js"]
+    "setupFiles": [
+      "<rootDir>/testSetup.js"
+    ],
+    "testPathIgnorePatterns": [
+      "/template/",
+      "/test/",
+      "/temp/",
+      "/scripts/",
+      ".*.helper.js"
+    ]
   },
   "lint-staged": {
-    "*.js": ["eslint --fix", "git add"],
-    "packages/**/bin/*": ["eslint --fix", "git add"]
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ],
+    "packages/**/bin/*": [
+      "eslint --fix",
+      "git add"
+    ]
   },
   "devDependencies": {
     "@babel/core": "^7.0.0-beta.42",
@@ -34,10 +50,12 @@
     "eslint-plugin-vue-libs": "^2.1.0",
     "globby": "^8.0.1",
     "jest": "^23.4.1",
+    "lerna": "^2.11.0",
     "lint-staged": "^6.0.1",
     "memfs": "^2.6.0",
+    "node-sass": "^4.9.3",
     "rimraf": "^2.6.2",
-    "lerna": "^2.11.0",
+    "sass-loader": "^7.1.0",
     "vue-loader": "^15.4.1",
     "webpack-merge": "^4.1.2"
   }
