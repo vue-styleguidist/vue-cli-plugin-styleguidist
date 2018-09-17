@@ -42,6 +42,19 @@ const runCommand = (api, cmd) => (args, rawArgv) => {
 }
 
 module.exports = api => {
+  api.configureWebpack(webpackConfig => ({
+    // make sure that the docs blocks
+    // are ignored during normal serve & build
+    module: {
+      rules: [
+        {
+          resourceQuery: /blockType=docs/,
+          loader: 'null-loader'
+        }
+      ]
+    }
+  }))
+
   api.registerCommand(
     'styleguidist',
     {
