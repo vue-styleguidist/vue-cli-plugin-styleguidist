@@ -1,6 +1,6 @@
 {
   "name": "vue-cli-plugin-styleguidist",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "vue cli 3.0 plugin for vue-styleguidist",
   "main": "index.js",
   "repository": "https://github.com/elevatebart/vue-cli-plugin-styleguidist.git",
@@ -9,7 +9,7 @@
   "private": false,
   "dependencies": {
     "null-loader": "^0.1.1",
-    "vue-styleguidist": "^1.8.9",
+    "vue-styleguidist": "^1.8.10",
     "webpack-merge": "^4.1.2"
   },
   "peerDependencies": {
