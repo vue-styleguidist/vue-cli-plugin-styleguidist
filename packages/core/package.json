@@ -9,7 +9,7 @@
   "private": false,
   "dependencies": {
     "null-loader": "^0.1.1",
-    "vue-styleguidist": "^1.8.10",
+    "vue-styleguidist": "^2.0.2",
     "webpack-merge": "^4.1.2"
   },
   "peerDependencies": {
