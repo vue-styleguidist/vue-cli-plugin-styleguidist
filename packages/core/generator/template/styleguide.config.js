@@ -1,8 +1,8 @@
 module.exports = {
   // set your styleguidist configuration here
   title: 'Default Style Guide',
+  components: 'src/components/**/[A-Z]*.vue',
   defaultExample: true
-  // components: 'src/components/**/[A-Z]*.vue',
   // sections: [
   //   {
   //     name: 'First Section',
