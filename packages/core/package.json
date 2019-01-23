@@ -9,6 +9,9 @@
   "private": false,
   "dependencies": {
     "null-loader": "^0.1.1",
+    "kleur": "^3.0.0",
+    "ora": "^3.0.0",
+    "react-dev-utils": "^7.0.0",
     "vue-styleguidist": "^3.0.2",
     "webpack-merge": "^4.1.2"
   },
