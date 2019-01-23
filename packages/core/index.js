@@ -25,7 +25,7 @@ module.exports = api => {
     },
     args => {
       const conf = api.resolve(args.config || './styleguide.config.js')
-      styleguidist(conf, config => (config.webpackConfig = api.resolveWebpackConfig())).binutils.build()
+      styleguidist(conf, config => (config.webpackConfig = getConfig(api))).binutils.build()
     }
   )
 
@@ -40,7 +40,13 @@ module.exports = api => {
     },
     args => {
       const conf = api.resolve(args.config || './styleguide.config.js')
-      styleguidist(conf, config => (config.webpackConfig = api.resolveWebpackConfig())).binutils.server(args.open)
+      styleguidist(conf, config => (config.webpackConfig = getConfig(api))).binutils.server(args.open)
     }
   )
+}
+
+function getConfig(api) {
+  const conf = api.resolveChainableWebpackConfig()
+  conf.plugins.delete('hmr')
+  return conf.toConfig()
 }
