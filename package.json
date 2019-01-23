@@ -1,6 +1,8 @@
 {
   "private": true,
-  "workspaces": ["packages/*"],
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
     "test": "jest",
     "pretest": "yarn clean",
@@ -13,12 +15,26 @@
   },
   "jest": {
     "testEnvironment": "node",
-    "setupFiles": ["<rootDir>/testSetup.js"],
-    "testPathIgnorePatterns": ["/template/", "/test/", "/temp/", "/scripts/", ".*.helper.js"]
+    "setupFiles": [
+      "<rootDir>/testSetup.js"
+    ],
+    "testPathIgnorePatterns": [
+      "/template/",
+      "/test/",
+      "/temp/",
+      "/scripts/",
+      ".*.helper.js"
+    ]
   },
   "lint-staged": {
-    "*.js": ["eslint --fix", "git add"],
-    "packages/**/bin/*": ["eslint --fix", "git add"]
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ],
+    "packages/**/bin/*": [
+      "eslint --fix",
+      "git add"
+    ]
   },
   "devDependencies": {
     "@babel/core": "^7.1.0",
@@ -33,6 +49,7 @@
     "babel-core": "^7.0.0-0",
     "debug": "^4.1.0",
     "eslint": "^5.9.0",
+    "eslint-config-prettier": "^3.6.0",
     "eslint-plugin-vue-libs": "^3.0.0",
     "globby": "^8.0.1",
     "jest": "^23.4.1",
