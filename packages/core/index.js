@@ -24,8 +24,7 @@ module.exports = api => {
       }
     },
     args => {
-      const conf = api.resolve(args.config || './styleguide.config.js')
-      styleguidist(conf, config => (config.webpackConfig = getConfig(api))).binutils.build()
+      getStyleguidist(args, api).binutils.build()
     }
   )
 
@@ -38,11 +37,25 @@ module.exports = api => {
         '--config': 'path to the config file'
       }
     },
+
     args => {
-      const conf = api.resolve(args.config || './styleguide.config.js')
-      styleguidist(conf, config => (config.webpackConfig = getConfig(api))).binutils.server(args.open)
+      const server = getStyleguidist(args, api).binutils.server(args.open)
+
+      // in order to avoid ghosted threads at the end of tests
+      ;['SIGINT', 'SIGTERM'].forEach(signal => {
+        process.on(signal, () => {
+          server.close(() => {
+            process.exit(0)
+          })
+        })
+      })
     }
   )
+}
+
+function getStyleguidist(args, api) {
+  const conf = api.resolve(args.config || './styleguide.config.js')
+  return styleguidist(conf, config => (config.webpackConfig = getConfig(api)))
 }
 
 function getConfig(api) {
