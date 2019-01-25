@@ -1470,7 +1470,7 @@
     semver "^5.5.0"
     string.prototype.padstart "^3.0.0"
 
-"@vue/cli-test-utils@^3.0.1", "@vue/cli-test-utils@^3.3.0":
+"@vue/cli-test-utils@^3.3.0":
   version "3.3.0"
   resolved "https://registry.yarnpkg.com/@vue/cli-test-utils/-/cli-test-utils-3.3.0.tgz#6335216dca4344f8a7d8e354bf4c0391b912a840"
   dependencies:

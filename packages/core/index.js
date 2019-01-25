@@ -1,4 +1,6 @@
 const styleguidist = require('vue-styleguidist')
+const fs = require('fs')
+const merge = require('webpack-merge')
 
 module.exports = api => {
   api.configureWebpack(() => ({
@@ -39,7 +41,7 @@ module.exports = api => {
     },
 
     args => {
-      const server = getStyleguidist(args, api).binutils.server(args.open)
+      const server = getStyleguidist(args, api).binutils.server(args.open).app
 
       // in order to avoid ghosted threads at the end of tests
       ;['SIGINT', 'SIGTERM'].forEach(signal => {
@@ -73,6 +75,8 @@ function getStyleguidist(args, api) {
 
 function getConfig(api) {
   const conf = api.resolveChainableWebpackConfig()
+  const vueConfigPath = api.resolve('./vue.config.js')
+  const vueConfig = fs.existsSync(vueConfigPath) ? require(vueConfigPath) : {}
   conf.plugins.delete('hmr')
-  return conf.toConfig()
+  return merge(conf.toConfig(), vueConfig.configureWebpack)
 }
