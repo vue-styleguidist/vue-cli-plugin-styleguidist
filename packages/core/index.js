@@ -1,48 +1,7 @@
-const execa = require('execa')
-
-const runCommand = (api, cmd) => (args, rawArgv) => {
-  const styleguidistBinPath = require.resolve('vue-styleguidist/bin/styleguidist')
-
-  const extraargs = []
-  // save the config url of the user if need be
-  if (args.config) {
-    extraargs.push('--config')
-    extraargs.push(args.config)
-  }
-  return new Promise((resolve, reject) => {
-    const server = execa(styleguidistBinPath, [cmd, ...extraargs], {
-      cwd: api.resolve('.'),
-      stdio: 'inherit'
-    })
-    server.on('error', reject)
-    server.on('exit', code => {
-      if (code !== 0) {
-        reject(`vue-styleguidist exited with code ${code}.`)
-      } else {
-        if (process.env.VUE_CLI_TEST) {
-          process.exit()
-        } else {
-          console.log('exited styleguide')
-          resolve()
-        }
-      }
-    })
-
-    // on appveyor, killing the process with SIGTERM causes execa to
-    // throw error
-    if (process.env.VUE_CLI_TEST) {
-      process.stdin.on('data', data => {
-        if (data.toString() === 'close') {
-          console.log('got close signal!')
-          process.exit()
-        }
-      })
-    }
-  })
-}
+const styleguidist = require('vue-styleguidist')
 
 module.exports = api => {
-  api.configureWebpack(webpackConfig => ({
+  api.configureWebpack(() => ({
     // make sure that the docs blocks
     // are ignored during normal serve & build
     module: {
@@ -56,18 +15,6 @@ module.exports = api => {
   }))
 
   api.registerCommand(
-    'styleguidist',
-    {
-      description: 'launch the styleguidist dev server',
-      usage: 'vue-cli-service styleguidist [options]',
-      options: {
-        '--config': 'path to the config file'
-      }
-    },
-    runCommand(api, 'server')
-  )
-
-  api.registerCommand(
     'styleguidist:build',
     {
       description: 'build the styleguidist website',
@@ -76,6 +23,56 @@ module.exports = api => {
         '--config': 'path to the config file'
       }
     },
-    runCommand(api, 'build')
+    args => {
+      getStyleguidist(args, api).binutils.build()
+    }
   )
+
+  api.registerCommand(
+    'styleguidist',
+    {
+      description: 'launch the styleguidist dev server',
+      usage: 'vue-cli-service styleguidist [options]',
+      options: {
+        '--config': 'path to the config file'
+      }
+    },
+
+    args => {
+      const server = getStyleguidist(args, api).binutils.server(args.open)
+
+      // in order to avoid ghosted threads at the end of tests
+      ;['SIGINT', 'SIGTERM'].forEach(signal => {
+        process.on(signal, () => {
+          server.close(() => {
+            process.exit(0)
+          })
+        })
+      })
+
+      // in tests, killing the process with SIGTERM causes execa to
+      // throw
+      if (process.env.VUE_CLI_TEST) {
+        process.stdin.on('data', data => {
+          if (data.toString() === 'close') {
+            console.log('got close signal!')
+            server.close(() => {
+              process.exit(0)
+            })
+          }
+        })
+      }
+    }
+  )
+}
+
+function getStyleguidist(args, api) {
+  const conf = api.resolve(args.config || './styleguide.config.js')
+  return styleguidist(conf, config => (config.webpackConfig = getConfig(api)))
+}
+
+function getConfig(api) {
+  const conf = api.resolveChainableWebpackConfig()
+  conf.plugins.delete('hmr')
+  return conf.toConfig()
 }
