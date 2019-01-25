@@ -1748,7 +1748,6 @@ acorn-dynamic-import@^3.0.0:
 acorn-dynamic-import@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/acorn-dynamic-import/-/acorn-dynamic-import-4.0.0.tgz#482210140582a36b83c3e342e1cfebcaa9240948"
-  integrity sha512-d3OEjQV4ROpoflsnUA8HozoIR504TFxNivYEUi6uwz0IYhBkTDXGuWlNdMtybRt3nqVx/L6XqMt0FxkXuWKZhw==
 
 acorn-globals@^3.0.0:
   version "3.1.0"
@@ -12677,7 +12676,6 @@ vue-cli-plugin-apollo@^0.18.1:
 vue-docgen-api@^3.3.2:
   version "3.3.3"
   resolved "https://registry.yarnpkg.com/vue-docgen-api/-/vue-docgen-api-3.3.3.tgz#2dc5b7252419c18941c4bef250a0b06f6da65e23"
-  integrity sha512-mD3mHenLKX4dOj1A4h3MsuO4/sj2V3TEAwqNz7zX2jIMew0+h25G89E2+kLmjreNKtqxGVKCI1ejZjHfIzCKBA==
   dependencies:
     "@babel/parser" "^7.2.3"
     "@babel/types" "^7.0.0"
@@ -12738,10 +12736,9 @@ vue-style-loader@^4.1.0:
     hash-sum "^1.0.2"
     loader-utils "^1.0.2"
 
-vue-styleguidist@^3.0.4:
-  version "3.0.4"
-  resolved "https://registry.yarnpkg.com/vue-styleguidist/-/vue-styleguidist-3.0.4.tgz#7c401a426e642b1d214b5098b8d51c9bb5cdd60d"
-  integrity sha512-XFLFKd6CVf6Q9Wgh/TH+4j5TKtNCNA+J70/3gYna+NRC4JXtvshYeafs5bNxGNmpR3jh6GgjRAkUJQcP+8E2LA==
+vue-styleguidist@^3.0.5:
+  version "3.0.5"
+  resolved "https://registry.yarnpkg.com/vue-styleguidist/-/vue-styleguidist-3.0.5.tgz#6ebb7b812b8b2112236c42863c871b4d78fcaf1f"
   dependencies:
     "@vxna/mini-html-webpack-template" "^0.1.7"
     acorn "^5.7.1"
@@ -13003,7 +13000,6 @@ webpack-sources@^1.1.0, webpack-sources@^1.3.0:
 webpack@^4.29.0:
   version "4.29.0"
   resolved "https://registry.yarnpkg.com/webpack/-/webpack-4.29.0.tgz#f2cfef83f7ae404ba889ff5d43efd285ca26e750"
-  integrity sha512-pxdGG0keDBtamE1mNvT5zyBdx+7wkh6mh7uzMOo/uRQ/fhsdj5FXkh/j5mapzs060forql1oXqXN9HJGju+y7w==
   dependencies:
     "@webassemblyjs/ast" "1.7.11"
     "@webassemblyjs/helper-module-context" "1.7.11"
