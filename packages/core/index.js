@@ -49,6 +49,19 @@ module.exports = api => {
           })
         })
       })
+
+      // in tests, killing the process with SIGTERM causes execa to
+      // throw
+      if (process.env.VUE_CLI_TEST) {
+        process.stdin.on('data', data => {
+          if (data.toString() === 'close') {
+            console.log('got close signal!')
+            server.close(() => {
+              process.exit(0)
+            })
+          }
+        })
+      }
     }
   )
 }
