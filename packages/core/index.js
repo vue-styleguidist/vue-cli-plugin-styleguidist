@@ -1,6 +1,4 @@
 const styleguidist = require('vue-styleguidist')
-const fs = require('fs')
-const merge = require('webpack-merge')
 
 module.exports = api => {
   api.configureWebpack(() => ({
@@ -75,8 +73,9 @@ function getStyleguidist(args, api) {
 
 function getConfig(api) {
   const conf = api.resolveChainableWebpackConfig()
-  const vueConfigPath = api.resolve('./vue.config.js')
-  const vueConfig = fs.existsSync(vueConfigPath) ? require(vueConfigPath) : {}
+  // because we are dealing with ho replacement in vsg
   conf.plugins.delete('hmr')
-  return merge(conf.toConfig(), vueConfig.configureWebpack)
+  // remove the double compiled successfully message
+  conf.plugins.delete('friendly-errors')
+  return api.resolveWebpackConfig(conf)
 }
