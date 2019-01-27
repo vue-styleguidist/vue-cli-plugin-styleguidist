@@ -12,6 +12,6 @@
     "vue-styleguidist": "^3.0.5"
   },
   "peerDependencies": {
-    "@vue/cli-service": "^3.2.0"
+    "@vue/cli-service": "^3.0.0"
   }
 }
