@@ -13133,12 +13133,12 @@ vue-style-loader@^4.1.0:
     hash-sum "^1.0.2"
     loader-utils "^1.0.2"
 
-vue-styleguidist@^3.0.5:
-  version "3.0.5"
-  resolved "https://registry.yarnpkg.com/vue-styleguidist/-/vue-styleguidist-3.0.5.tgz#6ebb7b812b8b2112236c42863c871b4d78fcaf1f"
+vue-styleguidist@^3.0.6:
+  version "3.0.6"
+  resolved "https://registry.yarnpkg.com/vue-styleguidist/-/vue-styleguidist-3.0.6.tgz#6ff6d38a4d85e180a35dfcc72a6d035cfcb5e369"
   dependencies:
     "@vxna/mini-html-webpack-template" "^0.1.7"
-    acorn "^5.7.1"
+    acorn "^6.0.5"
     ast-types "^0.11.5"
     buble "^0.19.6"
     classnames "^2.2.6"
