@@ -12,6 +12,7 @@ async function createAndInstall(name) {
   pkg.devDependencies['vue-cli-plugin-styleguidist'] = '*'
   pkg.devDependencies['@vue/cli-plugin-typescript'] = '*'
   await project.write('package.json', JSON.stringify(pkg, null, 2))
+  await project.run(`${require.resolve('@vue/cli/bin/vue')} invoke typescript --classComponent=false`)
   return project
 }
 
