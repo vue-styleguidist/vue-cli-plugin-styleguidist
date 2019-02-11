@@ -3,7 +3,7 @@
   "version": "1.0.4",
   "description": "vue cli 3.0 plugin for vue-styleguidist",
   "main": "index.js",
-  "repository": "https://github.com/elevatebart/vue-cli-plugin-styleguidist.git",
+  "repository": "https://github.com/vue-styleguidist/vue-cli-plugin-styleguidist.git",
   "author": "Bart Ledoux <ledouxb@me.com>",
   "license": "MIT",
   "private": false,
