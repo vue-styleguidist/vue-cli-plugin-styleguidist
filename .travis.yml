@@ -18,6 +18,7 @@ script:
 stages:
   - lint
   - test
+
   # make sure that release only happens on master
   - name: release
     if: type != pull_request AND branch = master
