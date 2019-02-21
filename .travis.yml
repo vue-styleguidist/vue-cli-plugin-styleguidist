@@ -17,6 +17,7 @@ script:
 stages:
   - lint
   - test
+  # make sur eth release only happens on master
   - name: release
     if: type != pull_request AND branch = master
 
