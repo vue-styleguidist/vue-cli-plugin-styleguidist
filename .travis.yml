@@ -1,5 +1,7 @@
-cache: yarn
 language: node_js
+node_js:
+  - '8'
+cache: yarn
 
 # In order to avoid double build on pull requests,
 # only build on pushes on master and on pushes on pull requests
@@ -9,15 +11,14 @@ branches:
 
 install:
   - yarn install
-node_js:
-  - '8'
+
 script:
   - yarn test
 
 stages:
   - lint
   - test
-  # make sur eth release only happens on master
+  # make sure that release only happens on master
   - name: release
     if: type != pull_request AND branch = master
 
