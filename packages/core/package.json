@@ -9,7 +9,7 @@
   "private": false,
   "dependencies": {
     "null-loader": "^0.1.1",
-    "vue-styleguidist": "^3.0.9"
+    "vue-styleguidist": "^3.0.X"
   },
   "peerDependencies": {
     "@vue/cli-service": "^3.0.0"
