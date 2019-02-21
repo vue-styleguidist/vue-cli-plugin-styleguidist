@@ -12,12 +12,9 @@ branches:
 install:
   - yarn install
 
-script:
-  - yarn test
-
 stages:
   - lint
-  - test
+  - integration
 
   # make sure that release only happens on master
   - name: release
@@ -28,6 +25,10 @@ jobs:
     - stage: lint
       script:
         - yarn lint
+
+    - stage: integration
+      script:
+        - yarn test
 
     - stage: release
       script:
