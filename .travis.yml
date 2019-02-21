@@ -1,9 +1,31 @@
 cache: yarn
 language: node_js
 
+# In order to avoid double build on pull requests,
+# only build on pushes on master and on pushes on pull requests
+branches:
+  only:
+    - master
+
 install:
-  - yarn
+  - yarn install
 node_js:
-  - "8"
+  - '8'
 script:
   - yarn test
+
+stages:
+  - lint
+  - test
+  - name: release
+    if: type != pull_request AND branch = master
+
+jobs:
+  include:
+    - stage: lint
+      script:
+        - yarn lint
+
+    - stage: release
+      script:
+        - yarn pub
