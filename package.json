@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest --runInBand",
     "pretest": "yarn clean",
-    "lint": "eslint --fix packages/**/*.js",
+    "lint": "eslint --fix packages/**/*.js packages/**/bin/*",
     "clean": "rimraf test/*",
     "pub": "lerna publish"
   },
