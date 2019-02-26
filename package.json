@@ -8,7 +8,7 @@
     "pretest": "yarn clean",
     "lint": "eslint --fix packages/**/*.js",
     "clean": "rimraf test/*",
-    "pub": "lerna publish"
+    "pub": "lerna publish --yes"
   },
   "gitHooks": {
     "pre-commit": "lint-staged"
