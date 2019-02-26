@@ -1,6 +1,13 @@
 cache: yarn
 language: node_js
 
+node_js:
+  - 9
+
+branches:
+  only:
+    - master
+
 install:
   - yarn install
 
