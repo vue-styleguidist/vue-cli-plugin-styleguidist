@@ -7,5 +7,6 @@ module.exports = api => {
     }
   })
 
+  // add all the files from template
   api.render('./template')
 }
