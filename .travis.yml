@@ -31,6 +31,7 @@ jobs:
 
     - stage: release
       script:
+        - git config --global user.name vue-styleguidist-bot
         - git remote set-url origin "https://${GH_TOKEN}@github.com/vue-styleguidist/vue-cli-plugin-styleguidist.git" > /dev/null 2>&1
         - git checkout master
         - echo "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" >> $HOME/.npmrc 2> /dev/null
