@@ -1,6 +1,6 @@
 # vue-cli-plugin-styleguidist
 
-vue cli 3.0 plugin for [vue-styleguidist](https://github.com/vue-styleguidist/vue-styleguidist)
+vue cli 3.0 plugin for [vue-styleguidist](https://vue-styleguidist.github.io/)
 
 ## install
 
