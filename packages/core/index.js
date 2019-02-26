@@ -73,8 +73,11 @@ function getStyleguidist(args, api) {
 
 function getConfig(api) {
   const conf = api.resolveChainableWebpackConfig()
-  // because we are dealing with ho replacement in vsg
+
+  // because we are dealing with hot replacement in vsg
+  // remove duplicate hot module reload plugin
   conf.plugins.delete('hmr')
+
   // remove the double compiled successfully message
   conf.plugins.delete('friendly-errors')
   return api.resolveWebpackConfig(conf)
