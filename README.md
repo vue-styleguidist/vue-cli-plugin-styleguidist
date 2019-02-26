@@ -1,5 +1,6 @@
 [![Build Status](https://travis-ci.org/vue-styleguidist/vue-cli-plugin-styleguidist.svg?branch=master)](https://travis-ci.org/vue-styleguidist/vue-cli-plugin-styleguidist) 
 [![npm package](https://img.shields.io/npm/v/vue-cli-plugin-styleguidist.svg)](https://www.npmjs.com/package/vue-cli-plugin-styleguidist)
+[![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
 <a href="https://discordapp.com/channels/325477692906536972/538786416092512278">
     <img src="https://img.shields.io/discord/325477692906536972.svg?logo=discord"
 alt="chat on Discord">
