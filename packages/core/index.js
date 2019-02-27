@@ -73,7 +73,7 @@ function getStyleguidist(args, api) {
 
 /**
  * Make webpackConfig for styleguidist
- * @param {*} api
+ * @param {Object} api
  */
 function getConfig(api) {
   const conf = api.resolveChainableWebpackConfig()
