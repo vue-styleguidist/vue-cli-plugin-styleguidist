@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.11](https://github.com/vue-styleguidist/vue-cli-plugin-styleguidist/compare/v1.0.10...v1.0.11) (2019-02-27)
+
+
+### Bug Fixes
+
+* add comments for getconfig ([40df7d9](https://github.com/vue-styleguidist/vue-cli-plugin-styleguidist/commit/40df7d9))
+* ci remove lerna changed ([021d5f1](https://github.com/vue-styleguidist/vue-cli-plugin-styleguidist/commit/021d5f1))
+
+
+
+
+
 ## [1.0.10](https://github.com/vue-styleguidist/vue-cli-plugin-styleguidist/compare/v1.0.9...v1.0.10) (2019-02-27)
 
 
