@@ -36,4 +36,4 @@ jobs:
         - git checkout master
         - echo "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" >> $HOME/.npmrc 2> /dev/null
         - yarn lerna changed
-        - yarn pub from-git
+        - yarn pub from-package
