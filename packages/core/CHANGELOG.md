@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.1.0](https://github.com/vue-styleguidist/vue-cli-plugin-styleguidist/compare/v1.0.12...v1.1.0) (2019-02-28)
+
+
+### Features
+
+* add comments about getConfig ([eff60c3](https://github.com/vue-styleguidist/vue-cli-plugin-styleguidist/commit/eff60c3))
+
+
+
+
+
 ## [1.0.12](https://github.com/vue-styleguidist/vue-cli-plugin-styleguidist/compare/v1.0.11...v1.0.12) (2019-02-27)
 
 

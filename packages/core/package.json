@@ -1,6 +1,6 @@
 {
   "name": "vue-cli-plugin-styleguidist",
-  "version": "1.0.12",
+  "version": "1.1.0",
   "description": "vue cli 3.0 plugin for vue-styleguidist",
   "main": "index.js",
   "repository": "https://github.com/vue-styleguidist/vue-cli-plugin-styleguidist.git",
