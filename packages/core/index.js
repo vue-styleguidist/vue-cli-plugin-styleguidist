@@ -73,7 +73,8 @@ function getStyleguidist(args, api) {
 
 /**
  * Make webpackConfig for styleguidist
- * @param {Object} api
+ * @param {@vue/cli/PluginAPI} api
+ * @return {webpackConfig}
  */
 function getConfig(api) {
   const conf = api.resolveChainableWebpackConfig()
