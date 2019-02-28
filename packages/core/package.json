@@ -8,7 +8,7 @@
   "license": "MIT",
   "private": false,
   "dependencies": {
-    "null-loader": "^0.1.1",
+    "null-loader": "^0.1.X",
     "vue-styleguidist": "^3.0.X"
   },
   "peerDependencies": {
