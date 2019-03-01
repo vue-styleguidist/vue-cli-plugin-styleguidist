@@ -31,8 +31,9 @@ jobs:
 
     - stage: release
       script:
-        - git config --global author.login "vue-styleguidist-bot"
+        - git config --global user.name "cluedude@hotmail.com"
+        - git config --global user.email "cluedude@hotmail.com"
         - git remote set-url origin "https://${GH_TOKEN}@github.com/vue-styleguidist/vue-cli-plugin-styleguidist.git" > /dev/null 2>&1
         - git checkout master
         - echo "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" >> $HOME/.npmrc 2> /dev/null
-        - yarn pub --amend
+        - yarn pub
